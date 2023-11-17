@@ -9,10 +9,7 @@ export default withNextSession(async (req, res) => {
         const { body } = req.body
         const prompt = body.prompt || ""
 
-        const { user } = req.session
-        if (!user) {
-            return res.status(500).json({ error: { message: "Session is missing!" } })
-        }
+
         try {
 
 
@@ -38,18 +35,6 @@ export default withNextSession(async (req, res) => {
             return res.status(500).json({ error: { message: e.message } });
         }
 
-    } else if (req.method = "PUT") {
-        const { session } = req.query
-        if (!session) {
-            return res.status(500).json({ error: { message: "Invalid session provided!" } })
-        }
-        req.session.user = {
-            session
-        }
-
-        await req.session.save()
-
-        res.status(200).json(session)
     }
     else {
         return res.status(500).json({ error: { message: "Invalid API Route" } })

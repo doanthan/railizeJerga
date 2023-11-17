@@ -59,16 +59,6 @@ export default function Stack({ stack, stackKey }) {
         }
     }
 
-    const handleSessionChange = async (e) => {
-        const session = e.target.value
-        if (!session) {
-            console.log("Not valid session!")
-            return;
-        }
-        await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/completion?session=${session}`)
-        setActiveSession(session)
-    }
-
 
 
     return (
@@ -76,7 +66,6 @@ export default function Stack({ stack, stackKey }) {
             <Header logo={stack.logo} info={stack.info} />
             <div className='mt-4'>Active Session: {activeSession}</div>
             <select
-                onChange={handleSessionChange}
                 value={activeSession !== ""}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-[200px] p-2.5 mt-5">
                 <option value={""} disabled={true}>Choose session</option>
