@@ -5,13 +5,11 @@ import Message from "@/components/Message"
 import Prompt from "@/components/Prompt"
 import { useRef, useState, useEffect } from "react"
 import axios from "axios"
-import useUser from "@/hooks/useUser"
 
 export default function Stack({ stack, stackKey }) {
     const [messages, setMessages] = useState([])
     const [activeSession, setActiveSession] = useState("")
     const chatRef = useRef(null)
-    const { user } = useUser();
 
     const SESSION_KEYS = [
         "u1-2023-04-13T15:36:20.424Z",
