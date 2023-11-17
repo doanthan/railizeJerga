@@ -18,11 +18,7 @@ export default function Stack({ stack, stackKey }) {
         "u4-2023-04-13T15:36:20.999Z",
     ];
 
-    useEffect(() => {
-        if (user) {
-            setActiveSession(user.session)
-        }
-    }, [user])
+
 
     useEffect(() => {
         chatRef.current.scrollTo(0, chatRef.current.scrollHeight)
