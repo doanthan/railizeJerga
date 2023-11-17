@@ -4,7 +4,7 @@ export default function useUser() {
     const [user, setUser] = useState(null)
     useEffect(() => {
         const getUser = async () => {
-            const { data } = await axios.get(`${NEXT_PUBLIC_API_URL}/api/user`)
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/user`)
 
             setUser(data)
         }

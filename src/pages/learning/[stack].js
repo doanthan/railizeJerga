@@ -46,7 +46,7 @@ export default function Stack({ stack, stackKey }) {
             ]
         })
         console.log(prompt)
-        const response = await axios.post(`${NEXT_PUBLIC_API_URL}/api/completion`, { body: { prompt } })
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/completion`, { body: { prompt } })
         console.log(response)
         if (response.status === 200) {
             setMessages((messages) => {
@@ -71,7 +71,7 @@ export default function Stack({ stack, stackKey }) {
             console.log("Not valid session!")
             return;
         }
-        await axios.put(`${NEXT_PUBLIC_API_URL}/api/completion?session=${session}`)
+        await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/completion?session=${session}`)
         setActiveSession(session)
     }
 
